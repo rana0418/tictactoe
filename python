@@ -1,0 +1,22 @@
+import random
+
+def comp_turn():
+   return random.choice(['Rock','Paper','Scissors'])
+def main():
+   num_games = int(input("Enter how many games you would like to play: "))
+   print("You are going to play " + str(num_games) + " games! Here we go!")
+   num_wins = 0
+   winning=[('Rock','Scissors'),('Paper','Rock'),('Scissors','Paper')]
+   for i in range(num_games):
+      user_move = input("Choose either Rock, Paper or Scissors and enter it: ")
+      cpu_turn = comp_turn()
+      print("The computer went with: " + cpu_turn)
+      if (user_move,cpu_turn) in winning:
+         print('You won!')
+         num_wins+=1
+      elif user_move == cpu_turn:
+         print('Same')
+      else:
+         print('You lost!')
+   return num_wins
+print(main())
